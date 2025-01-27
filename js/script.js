@@ -17,7 +17,7 @@ function updateCountdown() {
         const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000); // Seconds
 
         // Ensure double digits for hours, minutes, and seconds
-        const formattedTime = `${days}d ${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+        const formattedTime = `${days}days ${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
         timerElement.innerHTML = formattedTime;
     }
 }
