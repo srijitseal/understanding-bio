@@ -1,30 +1,31 @@
-// Countdown Timer Function
-const countdownDate = new Date("2025-03-30T00:00:00").getTime(); // Set launch date here
+document.addEventListener("DOMContentLoaded", function () {
+    function showPage(pageId) {
+        // Hide all pages
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+        });
 
-const timerElement = document.getElementById("timer");
+        // Show selected page
+        document.getElementById(pageId).classList.add('active');
 
-function updateCountdown() {
-    const now = new Date().getTime();
-    const timeLeft = countdownDate - now;
+        // Update active menu link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+        });
 
-    if (timeLeft <= 0) {
-        clearInterval(interval);
-        timerElement.innerHTML = "Launched!";
-    } else {
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24)); // Days
-        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Hours
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)); // Minutes
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000); // Seconds
-
-        // Ensure double digits for hours, minutes, and seconds
-        const formattedTime = `${days}days ${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
-        timerElement.innerHTML = formattedTime;
+        // Find the clicked link and set it as active
+        document.querySelector(`a[data-page="${pageId}"]`).classList.add('active');
     }
-}
 
-// Helper function to add leading zero
-function padZero(num) {
-    return num < 10 ? `0${num}` : num;
-}
+    // Attach click event listeners to all nav items
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            const pageId = this.getAttribute("data-page"); // Get the target page
+            showPage(pageId);
+        });
+    });
 
-const interval = setInterval(updateCountdown, 1000);
+    // Set default view to 'about' page
+    showPage('about');
+});
