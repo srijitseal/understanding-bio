@@ -3,24 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Understanding.bio - Coming Soon</title>
+    <title>Understanding.bio - Stealth Mode</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#" class="nav-item active" data-page="about">About</a></li>
+            <li><a href="#" class="nav-item" data-page="research">Research</a></li>
+            <li><a href="#" class="nav-item" data-page="careers">Careers</a></li>
+            <li><a href="#" class="nav-item" data-page="contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+
+    <!-- Page Content -->
     <div class="container">
-        <div class="hero">
+        <div id="about" class="page active">
             <h1 class="headline">understanding.bio</h1>
-            <p class="subheadline">Agentic AI and Omics data for in vivo Toxicity</p>
-            <div class="countdown" id="countdown">
-                <p>Launching In:</p>
-                <div id="timer">00:00:00</div>
+            <p class="subheadline">AI Agents and Omics Datasets</p>
+            <div class="countdown">
+                <p>Coming Soon</p>
             </div>
         </div>
-    </div>
 
-    <footer>
-        <p>Stay Tuned! Reach out at <a href="mailto:srijit@understanding.bio">srijit@understanding.bio</a></p>
-    </footer>
+        <div id="careers" class="page">
+            <h1 class="headline">We're Hiring!</h1>
+            <br>
+            <h2>📌 Open Position: Machine Learning Engineer</h2>
+            <br>
+            <p>We’re looking for an ML Engineer passionate about AI for drug discovery.</p>
+            <br>
+            <p>📧 Apply at: <a href="mailto:careers@understanding.bio">careers@understanding.bio</a></p>
+        </div>
+
+        <div id="research" class="page">
+            <h1 class="headline">Our Research</h1>
+            <p class="subheadline">We're leveraging AI agents to decode complex biological data, all while generating in house omics datasets!</p>
+        </div>
+
+        <div id="contact" class="page">
+            <h1 class="headline">Get in Touch</h1>
+            <br>
+            <p>Email us at: <a href="mailto:contact@understanding.bio">contact@understanding.bio</a></p>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
