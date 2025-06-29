@@ -1,1 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Website - Philadelphia Drug Discovery AI Meetings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #2d3748;
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+            min-height: calc(100vh - 200px);
+            padding: 2rem 0;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #718096;
+            margin-bottom: 2rem;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #2d3748;
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #1a202c;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .sidebar {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 2rem;
+            height: fit-content;
+        }
+
+        h2 {
+            color: #2d3748;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #4a5568;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: #edf2f7;
+            border-left: 4px solid #4a5568;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Events */
+        .event-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.3s ease;
+        }
+
+        .event-item:hover {
+            background: #f7fafc;
+        }
+
+        .event-item:last-child {
+            border-bottom: none;
+        }
+
+        .event-date {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 0.9rem;
+        }
+
+        .event-title {
+            font-weight: 600;
+            margin: 0.5rem 0;
+            color: #2d3748;
+        }
+
+        .event-location {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        /* Quick Links */
+        .quick-links ul {
+            list-style: none;
+        }
+
+        .quick-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .quick-links a {
+            color: #4a5568;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .quick-links a:hover {
+            color: #2d3748;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #f7fafc;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #4a5568;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn {
+            background: #2d3748;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #1a202c;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            margin-top: 3rem;
+            padding: 2rem 0;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #718096;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #4a5568;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1rem;
+            text-align: center;
+            color: #718096;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-section {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">understanding.bio</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showPage('about')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showPage('meetings')" class="nav-link">Meetings</a></li>
+                <li><a href="#" onclick="showPage('resources')" class="nav-link">Resources</a></li>
+                <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <h1>Philadelphia Drug Discovery AI</h1>
+                <p class="subtitle">Advancing Healthcare Through Artificial Intelligence</p>
+                <p class="description">
+                    Join Philadelphia's premier community of researchers, clinicians, and technologists working at the intersection of AI and drug discovery. Our monthly meetings foster collaboration, share cutting-edge research, and accelerate therapeutic innovation.
+                </p>
+                <a href="#" onclick="showPage('meetings')" class="cta-button">Join Our Next Meeting</a>
+            </section>
+
+            <div class="content-grid">
+                <div class="content-section">
+                    <h2>Welcome to Understanding.bio</h2>
+                    <p>
+                        Understanding.bio represents Philadelphia's vibrant drug discovery AI community, bringing together interdisciplinary experts from academia, industry, and healthcare institutions across the Greater Philadelphia area.
+                    </p>
+                    
+                    <div class="highlight-box">
+                        <strong>Our Mission:</strong> To accelerate therapeutic discovery and development through collaborative AI research, knowledge sharing, and innovative partnerships that transform how we understand and treat human disease.
+                    </div>
+
+                    <h3>What We Do</h3>
+                    <p>
+                        Our monthly meetings feature presentations on breakthrough AI methodologies in drug discovery, from molecular design and target identification to clinical trial optimization. We explore machine learning applications in pharmacokinetics, toxicology prediction, and personalized medicine approaches.
+                    </p>
+
+                    <h3>Recent Meeting Topics</h3>
+                    <p>
+                        • Graph Neural Networks for Drug-Target Interaction Prediction<br>
+                        • Generative Models in Lead Compound Optimization<br>
+                        • AI-Powered Clinical Trial Design and Patient Stratification<br>
+                        • Federated Learning in Multi-Site Drug Discovery Collaborations<br>
+                        • Explainable AI for Regulatory Submission in Pharmaceutical Development
+                    </p>
+                </div>
+
+                <div class="sidebar">
+                    <h3>Upcoming Events</h3>
+                    <div class="event-item">
+                        <div class="event-date">July 15, 2025 • 6:00 PM</div>
+                        <div class="event-title">AI in Immunotherapy: Predicting Response</div>
+                        <div class="event-location">University City Science Center</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date">August 12, 2025 • 6:00 PM</div>
+                        <div class="event-title">Foundation Models for Protein Design</div>
+                        <div class="event-location">UPenn Perelman School</div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date">September 9, 2025 • 6:00 PM</div>
+                        <div class="event-title">Real-World Evidence & AI Analytics</div>
+                        <div class="event-location">CHOP Research Institute</div>
+                    </div>
+
+                    <h3 style="margin-top: 2rem;">Quick Links</h3>
+                    <div class="quick-links">
+                        <ul>
+                            <li><a href="#">Join Slack Community</a></li>
+                            <li><a href="#">Submit Talk Proposal</a></li>
+                            <li><a href="#">Meeting Archive</a></li>
+                            <li><a href="#">Job Board</a></li>
+                            <li><a href="#">Newsletter Signup</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page">
+            <div class="content-section">
+                <h2>About Understanding.bio</h2>
+                <p>
+                    Understanding.bio is Philadelphia's premier community for professionals working at the intersection of artificial intelligence and drug discovery. Founded in 2024, we've grown to become a vital hub for collaboration, innovation, and knowledge sharing in the Greater Philadelphia biotech ecosystem.
+                </p>
+
+                <h3>Our Community</h3>
+                <p>
+                    Our diverse membership includes computational biologists, medicinal chemists, data scientists, clinicians, pharmaceutical researchers, biotech entrepreneurs, and students from across the Philadelphia region. We welcome professionals from all career stages, from graduate students to industry veterans.
+                </p>
+
+                <h3>Meeting Format</h3>
+                <p>
+                    Each monthly meeting typically features:
+                </p>
+                <p>
+                    • Two 25-minute technical presentations<br>
+                    • 15-minute Q&A and discussion sessions<br>
+                    • 30-minute networking reception<br>
+                    • Informal discussions and collaboration opportunities
+                </p>
+
+                <h3>Philadelphia's AI Drug Discovery Ecosystem</h3>
+                <p>
+                    Philadelphia is uniquely positioned as a leader in AI-driven drug discovery, with world-class research institutions, major pharmaceutical companies, and a growing startup ecosystem. Our meetings leverage this rich environment to foster innovation and collaboration.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Key Institutions:</strong> University of Pennsylvania, Children's Hospital of Philadelphia, Drexel University, Temple University, Thomas Jefferson University, and numerous pharmaceutical and biotech companies.
+                </div>
+
+                <h3>Values and Principles</h3>
+                <p>
+                    We are committed to open science, reproducible research, ethical AI development, and inclusive collaboration. Our community prioritizes rigorous scientific discourse while maintaining an welcoming environment for all participants.
+                </p>
+            </div>
+        </div>
+
+        <!-- MEETINGS PAGE -->
+        <div id="meetings" class="page">
+            <div class="content-section">
+                <h2>Meetings & Events</h2>
+                <p>
+                    Understanding.bio hosts monthly meetings featuring cutting-edge research presentations, technical discussions, and networking opportunities. All meetings are free and open to the community.
+                </p>
+
+                <h3>Upcoming Meetings</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Topic</th>
+                            <th>Speaker</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>July 15, 2025</td>
+                            <td>AI in Immunotherapy: Predicting Response</td>
+                            <td>Dr. Sarah Chen, UPenn</td>
+                            <td>University City Science Center</td>
+                        </tr>
+                        <tr>
+                            <td>August 12, 2025</td>
+                            <td>Foundation Models for Protein Design</td>
+                            <td>Dr. Michael Rodriguez, Drexel</td>
+                            <td>UPenn Perelman School</td>
+                        </tr>
+                        <tr>
+                            <td>September 9, 2025</td>
+                            <td>Real-World Evidence & AI Analytics</td>
+                            <td>Dr. Jennifer Liu, CHOP</td>
+                            <td>CHOP Research Institute</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Meeting Archive</h3>
+                <p>
+                    Previous meetings have covered topics including:
+                </p>
+                <p>
+                    • Machine Learning for ADMET Prediction<br>
+                    • Natural Language Processing in Drug Literature<br>
+                    • Computer Vision Applications in Drug Discovery<br>
+                    • Reinforcement Learning for Molecular Optimization<br>
+                    • AI Ethics in Healthcare and Drug Development<br>
+                    • Regulatory Considerations for AI-Assisted Drug Discovery
+                </p>
+
+                <h3>Speaking Opportunities</h3>
+                <p>
+                    We welcome presentation proposals from community members. Ideal presentations are 25 minutes long and focus on:
+                </p>
+                <p>
+                    • Novel AI methodologies in drug discovery<br>
+                    • Case studies and practical applications<br>
+                    • Challenges and lessons learned<br>
+                    • Collaborative research opportunities<br>
+                    • Tools and resources for the community
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Submit a Talk:</strong> Email your proposal to speakers@understanding.bio with a brief abstract and speaker bio.
+                </div>
+            </div>
+        </div>
+
+        <!-- RESOURCES PAGE -->
+        <div id="resources" class="page">
+            <div class="content-section">
+                <h2>Resources & Tools</h2>
+                <p>
+                    Our community maintains a curated collection of resources, tools, and learning materials for AI in drug discovery.
+                </p>
+
+                <h3>Community Platforms</h3>
+                <p>
+                    <strong>Slack Workspace:</strong> Join our active Slack community for daily discussions, job postings, and collaboration opportunities.<br>
+                    <strong>GitHub Organization:</strong> Access shared code repositories, datasets, and collaborative projects.<br>
+                    <strong>LinkedIn Group:</strong> Connect with community members and stay updated on professional opportunities.
+                </p>
+
+                <h3>Learning Resources</h3>
+                <p>
+                    • Curated reading lists and paper recommendations<br>
+                    • Tutorial series on key AI/ML techniques<br>
+                    • Workshop recordings and presentation slides<br>
+                    • Guest lecture series from industry experts<br>
+                    • Student mentorship and career guidance programs
+                </p>
+
+                <h3>Computational Resources</h3>
+                <p>
+                    Through partnerships with local institutions, we provide access to:
+                </p>
+                <p>
+                    • High-performance computing clusters<br>
+                    • Specialized software licenses<br>
+                    • Molecular databases and chemical libraries<br>
+                    • Cloud computing credits for research projects
+                </p>
+
+                <h3>Job Board</h3>
+                <p>
+                    Our job board features opportunities across the Philadelphia region, including positions at:
+                </p>
+                <p>
+                    • Pharmaceutical and biotech companies<br>
+                    • Academic research institutions<br>
+                    • Healthcare AI startups<br>
+                    • Consulting and technology firms<br>
+                    • Government and non-profit organizations
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Contribute:</strong> Share resources, tools, or opportunities with the community by emailing resources@understanding.bio
+                </div>
+
+                <h3>Partnerships</h3>
+                <p>
+                    We collaborate with leading institutions and organizations to provide enhanced resources and opportunities for our community members.
+                </p>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact" class="page">
+            <div class="content-grid">
+                <div class="content-section">
+                    <h2>Contact Us</h2>
+                    <p>
+                        Get in touch with the Understanding.bio community leadership team. We welcome questions, suggestions, and collaboration opportunities.
+                    </p>
+
+                    <h3>Get Involved</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="affiliation">Institution/Company</label>
+                            <input type="text" id="affiliation" name="affiliation">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interest">How would you like to get involved?</label>
+                            <select id="interest" name="interest">
+                                <option value="">Select an option</option>
+                                <option value="attend">Attend meetings</option>
+                                <option value="present">Give a presentation</option>
+                                <option value="sponsor">Sponsor an event</option>
+                                <option value="volunteer">Volunteer/Help organize</option>
+                                <option value="collaborate">Research collaboration</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your interests, research, or how you'd like to contribute to the community..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="sidebar">
+                    <h3>Contact Information</h3>
+                    <p><strong>General Inquiries:</strong><br>info@understanding.bio</p>
+                    <p><strong>Speaking Proposals:</strong><br>speakers@understanding.bio</p>
+                    <p><strong>Sponsorship:</strong><br>sponsors@understanding.bio</p>
+                    <p><strong>Resources:</strong><br>resources@understanding.bio</p>
+
+                    <h3>Meeting Locations</h3>
+                    <p>Our meetings rotate between venues across Philadelphia, including:</p>
+                    <p>
+                        • University City Science Center<br>
+                        • UPenn Perelman School of Medicine<br>
+                        • CHOP Research Institute<br>
+                        • Drexel University<br>
+                        • Various industry partner locations
+                    </p>
+
+                    <h3>Community Guidelines</h3>
+                    <p>
+                        We are committed to maintaining an inclusive, respectful, and collaborative environment. All participants are expected to follow our community guidelines and code of conduct.
+                    </p>
+
+                    <h3>Newsletter</h3>
+                    <p>
+                        Subscribe to our monthly newsletter for meeting announcements, community updates, and curated resources.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Understanding.bio</h3>
+                    <p>Philadelphia Drug Discovery AI Meetings</p>
+                    <p>Connecting researchers, clinicians, and technologists</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p><a href="#">LinkedIn Group</a></p>
+                    <p><a href="#">Slack Community</a></p>
+                    <p><a href="#">GitHub Organization</a></p>
+                    <p><a href="#">Newsletter</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Partners</h3>
+                    <p>University of Pennsylvania</p>
+                    <p>Children's Hospital of Philadelphia</p>
+                    <p>Drexel University</p>
+                    <p>Science Center Philadelphia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Understanding.bio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
