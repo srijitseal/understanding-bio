@@ -9,7 +9,7 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">understanding.bio</div>
+            <a href="#" class="logo" onclick="showPage('home')">understanding.bio</a>
             <ul class="nav-links">
                 <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
                 <li><a href="#" onclick="showPage('about')" class="nav-link">About</a></li>
@@ -21,216 +21,238 @@
     </header>
 
     <div class="container">
-        <!-- HOME PAGE -->
-        <div id="home" class="page active">
-            <section class="hero">
-                <h1>Philadelphia Drug Discovery AI</h1>
-                <p class="subtitle">Advancing Healthcare Through Artificial Intelligence</p>
-                <p class="description">
-                    Join Philadelphia's premier community of researchers, clinicians, and technologists working at the intersection of AI and drug discovery. Our quaterly meetings foster collaboration, share cutting-edge research, and accelerate therapeutic innovation.
-                </p>
-                <a href="#" onclick="showPage('meetings')" class="cta-button">Join Our Next Meeting</a>
-            </section>
-
-            <div class="content-grid">
-                <div class="content-section">
-                    <h2>Welcome to Understanding.bio</h2>
-                    <p>
-                        Understanding.bio represents Philadelphia's vibrant drug discovery AI community, bringing together interdisciplinary experts from academia, industry, and healthcare institutions across the Greater Philadelphia area.
+        <div class="main-content">
+            <!-- HOME PAGE -->
+            <div id="home" class="page active">
+                <section class="hero">
+                    <h1>Philadelphia Drug Discovery AI</h1>
+                    <p class="subtitle">Advancing Healthcare Through Artificial Intelligence</p>
+                    <p class="description">
+                        Join Philadelphia's premier community of researchers, clinicians, and technologists working at the intersection of AI and drug discovery. Our quarterly meetings foster collaboration, share cutting-edge research, and accelerate therapeutic innovation.
                     </p>
-                    
+                    <a href="#" onclick="showPage('meetings')" class="cta-button">Join Our Next Meeting</a>
+                </section>
+
+                <div class="content-grid">
+                    <div class="content-section">
+                        <h2>Welcome to Understanding.bio</h2>
+                        <p>
+                            Understanding.bio represents Philadelphia's vibrant drug discovery AI community, bringing together interdisciplinary experts from academia, industry, and healthcare institutions across the Greater Philadelphia area.
+                        </p>
+                        
+                        <div class="highlight-box">
+                            <strong>Our Mission:</strong> To accelerate therapeutic discovery and development through collaborative AI research, knowledge sharing, and innovative partnerships that transform how we understand and treat human disease.
+                        </div>
+
+                        <h3>What We Do</h3>
+                        <p>
+                            Our quarterly meetings feature presentations on breakthrough AI methodologies in drug discovery, from molecular design and target identification to clinical trial optimization. We explore machine learning applications in pharmacokinetics, toxicology prediction, and personalized medicine approaches.
+                        </p>
+
+                        <h3>Recent Meeting Topics</h3>
+                        <p>
+                            • Innovative Approaches in Data-Driven Chemistry and Reaction Optimization<br>
+                            • AI Driven Exploration of Dementia Biomarkers<br>
+                            • SyzOnc: A new systems-level approach to cancer therapeutics
+                        </p>
+                    </div>
+
+                    <div class="sidebar">
+                        <h3>Upcoming Events</h3>
+                        <div class="event-item">
+                            <div class="event-date">July 18, 2025 • 7:00 PM</div>
+                            <div class="event-title">Introduction to AI in Drug Discovery</div>
+                            <div class="event-location">Chemistry Laboratories, 1973 Wing, 231 S. 34th Street, Philadelphia, PA 19104-6323</div>
+                        </div>
+
+                        <h3 style="margin-top: 2rem;">Quick Links</h3>
+                        <div class="quick-links">
+                            <ul>
+                                <li>
+                                    <a href="mailto:srijit@understanding.bio?subject=Talk Proposal Submission">
+                                        Submit Talk Proposal
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:andreas@drugdiscovery.net?subject=Newsletter Signup Request&body=Hello%20Andreas,%0A%0AI%20would%20like%20to%20register%20for%20the%20newsletter%20in%20cheminformatics%20and%20computational%20drug%20discovery.%0A%0AThank%20you!">
+                                        Cheminformatics Newsletter
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:speakers@understanding.bio?subject=Speaking Opportunity">
+                                        Become a Speaker
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ABOUT PAGE -->
+            <div id="about" class="page">
+                <div class="content-section">
+                    <h2>About Understanding.bio</h2>
+                    <p>
+                        Understanding.bio is Philadelphia's premier community for professionals working at the intersection of artificial intelligence and drug discovery. Founded in 2025, we are growing to become a hub for collaboration, innovation, and knowledge sharing in the Greater Philadelphia biotech ecosystem.
+                    </p>
+
+                    <h3>Our Community</h3>
+                    <p>
+                        Our membership includes computational biologists, medicinal chemists, data scientists, clinicians, pharmaceutical researchers, biotech entrepreneurs, and students from across the Philadelphia region. We welcome professionals from all career stages, from graduate students to industry veterans.
+                    </p>
+
+                    <h3>Meeting Format</h3>
+                    <p>
+                        Each quarterly meeting typically features:
+                    </p>
                     <div class="highlight-box">
-                        <strong>Our Mission:</strong> To accelerate therapeutic discovery and development through collaborative AI research, knowledge sharing, and innovative partnerships that transform how we understand and treat human disease.
+                        • Two 35-minute technical presentations<br>
+                        • 15-minute Q&A and discussion sessions<br>
+                        • 30-minute networking reception<br>
+                        • Informal discussions and collaboration opportunities
                     </div>
 
-                    <h3>What We Do</h3>
+                    <h3>Philadelphia's AI Drug Discovery Ecosystem</h3>
                     <p>
-                        Our quarterly meetings feature presentations on breakthrough AI methodologies in drug discovery, from molecular design and target identification to clinical trial optimization. We explore machine learning applications in pharmacokinetics, toxicology prediction, and personalized medicine approaches.
+                        Philadelphia is uniquely positioned as a leader in AI-driven drug discovery, with world-class research institutions, major pharmaceutical companies, and a growing startup ecosystem. Our meetings leverage this rich environment to foster innovation and collaboration.
                     </p>
 
-                    <h3>Recent Meeting Topics</h3>
+                    <h3>Values and Principles</h3>
                     <p>
-                        • Innovative Approaches in Data-Driven Chemistry and Reaction Optimization<br>
-                        • AI Driven Exploration of Dementia Biomarkers<br>
+                        We are committed to open science, reproducible research, ethical AI development, and inclusive collaboration. Our community prioritizes rigorous scientific discourse while maintaining a welcoming environment for all participants.
                     </p>
                 </div>
-
-                <div class="sidebar">
-                    <h3>Upcoming Events</h3>
-                    <div class="event-item">
-                        <div class="event-date">July 18, 2025 • 7:00 PM</div>
-                        <div class="event-title">Introduction to AI in Drug Discovery</div>
-                        <div class="event-location">Chemistry Laboratories, 1973 Wing, 231 S. 34th Street, Philadelphia, PA 19104-6323</div>
-                    </div>
-
-                    <h3 style="margin-top: 2rem;">Quick Links</h3>
-                    <div class="quick-links">
-                        <ul>
-                            <li>
-                              <a href="mailto:srijit@understanding.bio?subject=Talk Proposal Submission">
-                                Submit Talk Proposal
-                              </a>
-                            </li>
-                            <li>
-                              <a href="mailto:andreas@drugdiscovery.net?subject=Newsletter Signup Request&body=Hello%20Andreas,%0A%0AI%20would%20like%20to%20register%20for%20the%20newsletter%20in%20cheminformatics%20and%20computational%20drug%20discovery.%0A%0AThank%20you!">
-                                Newsletter Signup to Cheminformatics Updates From Andreas Bender
-                              </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
             </div>
-        </div>
 
-        <!-- ABOUT PAGE -->
-        <div id="about" class="page">
-            <div class="content-section">
-                <h2>About Understanding.bio</h2>
-                <p>
-                    Understanding.bio is Philadelphia's premier community for professionals working at the intersection of artificial intelligence and drug discovery. Founded in 2025, we are growing to become a  hub for collaboration, innovation, and knowledge sharing in the Greater Philadelphia biotech ecosystem.
-                </p>
-
-                <h3>Our Community</h3>
-                <p>
-                    Our  membership includes computational biologists, medicinal chemists, data scientists, clinicians, pharmaceutical researchers, biotech entrepreneurs, and students from across the Philadelphia region. We welcome professionals from all career stages, from graduate students to industry veterans.
-                </p>
-
-                <h3>Meeting Format</h3>
-                <p>
-                    Each quarterly meeting typically features:
-                </p>
-                <p>
-                    • Two 35-minute technical presentations<br>
-                    • 15-minute Q&A and discussion sessions<br>
-                    • 30-minute networking reception<br>
-                    • Informal discussions and collaboration opportunities
-                </p>
-
-                <h3>Philadelphia's AI Drug Discovery Ecosystem</h3>
-                <p>
-                    Philadelphia is uniquely positioned as a leader in AI-driven drug discovery, with world-class research institutions, major pharmaceutical companies, and a growing startup ecosystem. Our meetings leverage this rich environment to foster innovation and collaboration.
-                </p>
-
-                <h3>Values and Principles</h3>
-                <p>
-                    We are committed to open science, reproducible research, ethical AI development, and inclusive collaboration. Our community prioritizes rigorous scientific discourse while maintaining a welcoming environment for all participants.
-                </p>
-            </div>
-        </div>
-
-        <!-- MEETINGS PAGE -->
-        <div id="meetings" class="page">
-            <div class="content-section">
-                <h2>Meetings & Events</h2>
-                <p>
-                    Understanding.bio hosts quaterly meetings featuring cutting-edge research presentations, technical discussions, and networking opportunities. All meetings are free and open to the community.
-                </p>
-
-                <h3>Upcoming Meetings</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Topic</th>
-                            <th>Speaker</th>
-                            <th>Location</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>July 18, 2025</td>
-                            <td>Introduction to AI in Drug Discovery</td>
-                            <td>Dr. Srijit Seal</td>
-                            <td>SyzOnc: A new systems-level approach to cancer therapeutics</td>
-                            <td>Dr. Karin Eisinger</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3>Meeting Archive</h3>
-                <p>
-                    Previous meetings will be covered here:
-                </p>
-                <p>
-                    • <br>
-                    
-                </p>
-
-                <h3>Speaking Opportunities</h3>
-                <p>
-                    We welcome presentation proposals from community members. Ideal presentations are 25 minutes long and focus on:
-                </p>
-                <p>
-                    • Novel AI methodologies in drug discovery<br>
-                    • Case studies and practical applications<br>
-                    • Challenges and lessons learned<br>
-                    • Collaborative research opportunities<br>
-                    • Tools and resources for the community
-                </p>
-
-                <div class="highlight-box">
-                    <strong>Submit a Talk:</strong> Email your proposal to speakers@understanding.bio with a brief abstract and speaker bio.
-                </div>
-            </div>
-        </div>
-
-        <!-- RESOURCES PAGE -->
-        <div id="resources" class="page">
-            <div class="content-section">
-                <h2>Resources & Tools</h2>
-                <p>
-                    Our community maintains a curated collection of resources, tools, and learning materials for AI in drug discovery.
-                </p>
-
-                <h3>Community Platforms</h3>
-                <p>
-                    <strong>Introduction to Cheminformatics:</strong> A short introduction to Cheminformatics: AI in Chemistry.<br>
-                </p>
-
-
-                <div class="highlight-box">
-                    <strong>Contribute:</strong> Share resources, tools, or opportunities with the community by emailing resources@understanding.bio
-                </div>
-
-                <h3>Partnerships</h3>
-                <p>
-                    We collaborate with leading institutions and organizations to provide enhanced resources and opportunities for our community members.
-                </p>
-            </div>
-        </div>
-
-        <!-- CONTACT PAGE -->
-        <div id="contact" class="page">
-            <div class="content-grid">
+            <!-- MEETINGS PAGE -->
+            <div id="meetings" class="page">
                 <div class="content-section">
-                    <h2>Contact Us</h2>
+                    <h2>Meetings & Events</h2>
                     <p>
-                        Get in touch with the Understanding.bio community leadership team. We welcome questions, suggestions, and collaboration opportunities.
+                        Understanding.bio hosts quarterly meetings featuring cutting-edge research presentations, technical discussions, and networking opportunities. All meetings are free and open to the community.
                     </p>
 
-                    <h3>Get Involved</h3>
+                    <h3>Upcoming Meetings</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Topic</th>
+                                <th>Speaker</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>July 18, 2025</td>
+                                <td>Introduction to AI in Drug Discovery</td>
+                                <td>Dr. Srijit Seal</td>
+                                <td>Chemistry Laboratories, 1973 Wing</td>
+                            </tr>
+                            <tr>
+                                <td>July 18, 2025</td>
+                                <td>SyzOnc: A new systems-level approach to cancer therapeutics</td>
+                                <td>Dr. Karin Eisinger</td>
+                                <td>Chemistry Laboratories, 1973 Wing</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                <div class="sidebar">
-                    <h3>Contact Information</h3>
-                    <p><strong>General Inquiries:</strong><br>info@understanding.bio</p>
-                    <p><strong>Speaking Proposals:</strong><br>speakers@understanding.bio</p>
-                    <p><strong>Sponsorship:</strong><br>sponsors@understanding.bio</p>
-                    <p><strong>Resources:</strong><br>resources@understanding.bio</p>
-
-                    <h3>Meeting Locations</h3>
-                    <p>231 S 34th St, Philadelphia, PA 19104</p>
-
-                    <h3>Community Guidelines</h3>
+                    <h3>Meeting Archive</h3>
                     <p>
-                        We are committed to maintaining an inclusive, respectful, and collaborative environment. All participants are expected to follow our community guidelines and code of conduct.
+                        Previous meetings and presentations will be documented here as our community grows. We plan to maintain a comprehensive archive of talks, slides, and discussion summaries for community reference.
                     </p>
 
-                    <h3>Newsletter</h3>
+                    <h3>Speaking Opportunities</h3>
                     <p>
-                        Subscribe to Andreas Bender's quarterly newsletter for announcements, community updates, and curated resources.
+                        We welcome presentation proposals from community members. Ideal presentations are 25-35 minutes long and focus on:
                     </p>
+                    <div class="highlight-box">
+                        • Novel AI methodologies in drug discovery<br>
+                        • Case studies and practical applications<br>
+                        • Challenges and lessons learned<br>
+                        • Collaborative research opportunities<br>
+                        • Tools and resources for the community
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>Submit a Talk:</strong> Email your proposal to <a href="mailto:speakers@understanding.bio" style="color: white; text-decoration: underline;">speakers@understanding.bio</a> with a brief abstract and speaker bio.
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESOURCES PAGE -->
+            <div id="resources" class="page">
+                <div class="content-section">
+                    <h2>Resources & Tools</h2>
+                    <p>
+                        Our community maintains a curated collection of resources, tools, and learning materials for AI in drug discovery.
+                    </p>
+
+                    <h3>Learning Resources</h3>
+                    <p>
+                        <strong>Introduction to Cheminformatics:</strong> A comprehensive introduction to AI applications in chemistry and drug discovery. This resource covers fundamental concepts, tools, and methodologies essential for understanding the intersection of artificial intelligence and pharmaceutical research.
+                    </p>
+
+                    <h3>Community Platforms</h3>
+                    <p>
+                        Stay connected with our community through various platforms and communication channels. We maintain active discussions on recent developments, share job opportunities, and coordinate collaborative projects.
+                    </p>
+
+                    <h3>Recommended Tools</h3>
+                    <p>
+                        Our community members regularly use and recommend various computational tools for drug discovery research. These range from open-source molecular modeling software to commercial platforms for AI-driven drug design.
+                    </p>
+
+                    <div class="highlight-box">
+                        <strong>Contribute:</strong> Share resources, tools, or opportunities with the community by emailing <a href="mailto:resources@understanding.bio" style="color: white; text-decoration: underline;">resources@understanding.bio</a>
+                    </div>
+
+                    <h3>Partnerships</h3>
+                    <p>
+                        We collaborate with leading institutions and organizations to provide enhanced resources and opportunities for our community members, including access to specialized training, research collaborations, and industry connections.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CONTACT PAGE -->
+            <div id="contact" class="page">
+                <div class="content-grid">
+                    <div class="content-section">
+                        <h2>Contact Us</h2>
+                        <p>
+                            Get in touch with the Understanding.bio community leadership team. We welcome questions, suggestions, and collaboration opportunities.
+                        </p>
+
+                        <h3>Get Involved</h3>
+                        <p>
+                            Whether you're a researcher, clinician, student, or industry professional, there are many ways to engage with our community. Join us for meetings, contribute to discussions, share your research, or help organize events.
+                        </p>
+
+                        <h3>Community Guidelines</h3>
+                        <p>
+                            We are committed to maintaining an inclusive, respectful, and collaborative environment. All participants are expected to follow our community guidelines and code of conduct, which emphasize professional discourse, mutual respect, and constructive engagement.
+                        </p>
+                    </div>
+
+                    <div class="sidebar">
+                        <h3>Contact Information</h3>
+                        <p><strong>General Inquiries:</strong><br><a href="mailto:info@understanding.bio">info@understanding.bio</a></p>
+                        <p><strong>Speaking Proposals:</strong><br><a href="mailto:speakers@understanding.bio">speakers@understanding.bio</a></p>
+                        <p><strong>Sponsorship:</strong><br><a href="mailto:sponsors@understanding.bio">sponsors@understanding.bio</a></p>
+                        <p><strong>Resources:</strong><br><a href="mailto:resources@understanding.bio">resources@understanding.bio</a></p>
+
+                        <h3>Meeting Location</h3>
+                        <p>Chemistry Laboratories, 1973 Wing<br>231 S 34th St<br>Philadelphia, PA 19104</p>
+
+                        <h3>Newsletter</h3>
+                        <p>
+                            <a href="mailto:andreas@drugdiscovery.net?subject=Newsletter Signup Request&body=Hello%20Andreas,%0A%0AI%20would%20like%20to%20register%20for%20the%20newsletter%20in%20cheminformatics%20and%20computational%20drug%20discovery.%0A%0AThank%20you!">
+                                Subscribe to Andreas Bender's Newsletter
+                            </a> for quarterly updates on cheminformatics and computational drug discovery.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -246,8 +268,15 @@
                 </div>
                 <div class="footer-section">
                     <h3>Connect</h3>
-                    <p><a href="#">Courses</a></p>
-                    <p><a href="#">Newsletter</a></p>
+                    <p><a href="mailto:info@understanding.bio">Email Us</a></p>
+                    <p><a href="mailto:andreas@drugdiscovery.net?subject=Newsletter Signup Request">Newsletter</a></p>
+                    <p><a href="mailto:speakers@understanding.bio">Speaking Opportunities</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <p><a href="#" onclick="showPage('resources')">Learning Materials</a></p>
+                    <p><a href="#" onclick="showPage('meetings')">Meeting Archive</a></p>
+                    <p><a href="mailto:resources@understanding.bio">Contribute Resources</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -271,12 +300,43 @@
                 link.classList.remove('active');
             });
             
-            event.target.classList.add('active');
+            // Find the clicked nav link and add active class
+            const clickedLink = event.target.closest('.nav-link');
+            if (clickedLink) {
+                clickedLink.classList.add('active');
+            }
             
-            // Scroll to top
-            window.scrollTo(0, 0);
+            // Scroll to top smoothly
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
 
+        // Add smooth scrolling and interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to event items
+            const eventItems = document.querySelectorAll('.event-item');
+            eventItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(10px)';
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+
+            // Add click effects to buttons
+            const buttons = document.querySelectorAll('.cta-button, .nav-link');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
     </script>
 </body>
 </html>
