@@ -1,399 +1,296 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Understanding.bio - Decode Life's Mysteries</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-        
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-        }
-        
-        .dna-helix {
-            position: absolute;
-            width: 2px;
-            height: 100vh;
-            background: linear-gradient(to bottom, 
-                transparent 0%, 
-                #00ff87 20%, 
-                #60efff  50%, 
-                #ff6b9d 80%, 
-                transparent 100%);
-            animation: float 8s ease-in-out infinite;
-            opacity: 0.3;
-        }
-        
-        .dna-helix:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .dna-helix:nth-child(2) { left: 25%; animation-delay: 2s; }
-        .dna-helix:nth-child(3) { right: 30%; animation-delay: 4s; }
-        .dna-helix:nth-child(4) { right: 15%; animation-delay: 6s; }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(-20px) rotate(0deg); }
-            50% { transform: translateY(20px) rotate(180deg); }
-        }
-        
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
-            backdrop-filter: blur(20px);
-            background: rgba(10, 10, 10, 0.8);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #00ff87, #60efff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #00ff87, #60efff);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 50px;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            z-index: 2;
-        }
-        
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 800;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #ffffff, #00ff87, #60efff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        .hero p {
-            font-size: 24px;
-            margin-bottom: 50px;
-            opacity: 0.9;
-            line-height: 1.5;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 20px 40px;
-            background: linear-gradient(135deg, #00ff87, #60efff);
-            color: #0a0a0a;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-out 0.4s both;
-            box-shadow: 0 10px 30px rgba(0, 255, 135, 0.3);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 255, 135, 0.4);
-        }
-        
-        /* Floating Elements */
-        .molecule {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(96, 239, 255, 0.2), rgba(0, 255, 135, 0.1));
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            animation: moleculeFloat 6s ease-in-out infinite;
-        }
-        
-        .molecule:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
-        .molecule:nth-child(2) { top: 60%; right: 20%; animation-delay: 2s; }
-        .molecule:nth-child(3) { bottom: 30%; left: 10%; animation-delay: 4s; }
-        
-        @keyframes moleculeFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(180deg); }
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 100px 50px;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-        }
-        
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .features h2 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff, #00ff87);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .features p {
-            font-size: 20px;
-            opacity: 0.8;
-            margin-bottom: 60px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .feature-card {
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 135, 0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s ease;
-            opacity: 0;
-        }
-        
-        .feature-card:hover::before {
-            opacity: 1;
-            animation: shimmer 1.5s ease-in-out;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 255, 135, 0.2);
-        }
-        
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 30px;
-            background: linear-gradient(135deg, #00ff87, #60efff);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-        }
-        
-        .feature-card h3 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        .feature-card p {
-            opacity: 0.8;
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: rotate(45deg) translateX(-100%); }
-            100% { transform: rotate(45deg) translateX(100%); }
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-            }
-            
-            .nav-links {
-                gap: 20px;
-            }
-            
-            .hero {
-                padding: 0 20px;
-            }
-            
-            .features {
-                padding: 60px 20px;
-            }
-            
-            .feature-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="bg-animation">
-        <div class="dna-helix"></div>
-        <div class="dna-helix"></div>
-        <div class="dna-helix"></div>
-        <div class="dna-helix"></div>
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, ExternalLink, Github, Mail, MapPin, Award, School, BookOpen, Briefcase, Building2, Newspaper, Trophy, Layers, Linkedin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+// --- Helper Components ---
+const Section = ({ id, title, subtitle, children }:{id:string; title:string; subtitle?:string; children:React.ReactNode}) => (
+  <section id={id} className="scroll-mt-24 max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-12">
+    <motion.div initial={{opacity:0, y:20}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.5}}>
+      <div className="mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{title}</h2>
+        {subtitle && <p className="text-muted-foreground mt-2 max-w-3xl">{subtitle}</p>}
+      </div>
+      {children}
+    </motion.div>
+  </section>
+);
+
+const Pill = ({ children }:{children:React.ReactNode}) => (
+  <span className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium bg-background/60 backdrop-blur border-border">{children}</span>
+);
+
+const TimelineItem = ({ when, where, title, description, icon:Icon = Briefcase }:{when:string; where?:string; title:string; description?:string; icon?: any}) => (
+  <div className="relative pl-10 py-4">
+    <div className="absolute left-0 top-6 w-8 flex justify-center">
+      <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+        <Icon className="h-4 w-4 text-primary" />
+      </div>
     </div>
+    <div className="border-l pl-6">
+      <div className="text-sm text-muted-foreground">{when}{where && <> · {where}</>}</div>
+      <div className="font-semibold text-lg">{title}</div>
+      {description && <div className="text-sm text-muted-foreground mt-1">{description}</div>}
+    </div>
+  </div>
+);
 
-    <header>
-        <nav>
-            <div class="logo">understanding.bio</div>
+const PublicationCard = ({ title, venue, year, authors, note }:{title:string; venue?:string; year?:string; authors?:string; note?:string}) => (
+  <Card className="hover:shadow-xl transition-shadow">
+    <CardHeader>
+      <CardTitle className="text-lg leading-snug">{title}</CardTitle>
+      <CardDescription>
+        <div className="flex flex-wrap gap-2 items-center text-sm">
+          {venue && <Pill>{venue}</Pill>}
+          {year && <Pill>{year}</Pill>}
+          {note && <Pill>{note}</Pill>}
+        </div>
+        {authors && <div className="mt-2 text-muted-foreground text-sm">{authors}</div>}
+      </CardDescription>
+    </CardHeader>
+  </Card>
+);
+
+// --- Main Page ---
+export default function SrijitSealSite(){
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-background via-background to-background">
+      {/* Sticky Nav */}
+      <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+        <nav className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="h-6 w-6 rounded bg-primary" />
+            <span className="font-semibold">Srijit Seal</span>
+          </div>
+          <div className="hidden md:flex items-center gap-6 text-sm">
+            <a href="#about" className="hover:text-primary">About</a>
+            <a href="#experience" className="hover:text-primary">Experience</a>
+            <a href="#publications" className="hover:text-primary">Publications</a>
+            <a href="#grants" className="hover:text-primary">Grants</a>
+            <a href="#awards" className="hover:text-primary">Awards</a>
+            <a href="#contact" className="hover:text-primary">Contact</a>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button asChild size="sm" variant="outline"><a href="#contact">Get in touch</a></Button>
+          </div>
         </nav>
-    </header>
+      </div>
 
-    <main>
-        <section class="hero">
-            <div class="molecule"></div>
-            <div class="molecule"></div>
-            <div class="molecule"></div>
-            
-            <div class="hero-content">
-                <h1>Decode Life's<br>Mysteries</h1>
-                <p>Unlock the secrets of biology through cutting-edge research, exploration, and collaborative discovery. Where science meets understanding.</p>
-                <a href="#" class="cta-button">Coming Soon</a>
+      {/* Hero */}
+      <header className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,theme(colors.primary/10),transparent_60%)]" />
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-24">
+          <motion.div initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} transition={{duration:0.6}} className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <Badge variant="secondary" className="text-xs"><Building2 className="h-3 w-3 mr-1"/> Merck · Senior Scientist (AI)</Badge>
+                <Badge variant="secondary" className="text-xs"><School className="h-3 w-3 mr-1"/> Broad Institute · Postdoc alum</Badge>
+                <Badge variant="secondary" className="text-xs"><School className="h-3 w-3 mr-1"/> University of Cambridge · PhD</Badge>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                AI × Drug Discovery × <span className="text-primary">Safety</span>
+              </h1>
+              <p className="mt-4 text-lg text-muted-foreground max-w-xl">
+                Srijit is a computational scientist working at the intersection of machine learning and
+                drug discovery — specializing in Cell Painting, predictive toxicology, and model evaluation.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button asChild size="lg">
+                  <a href="#publications">Explore publications <ArrowRight className="ml-2 h-4 w-4"/></a>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <a href="#highlights">See highlights</a>
+                </Button>
+              </div>
+              <div className="mt-6 flex flex-wrap gap-2 text-sm text-muted-foreground">
+                <Pill><MapPin className="h-3 w-3 mr-1"/> Greater Philadelphia, USA</Pill>
+                <Pill><Award className="h-3 w-3 mr-1"/> Board, ASCCT (2025–2027)</Pill>
+                <Pill><Layers className="h-3 w-3 mr-1"/> Cell Painting · Toxicology · PK</Pill>
+              </div>
             </div>
-        </section>
+            <div className="md:justify-self-end">
+              <Card className="md:w-[420px] md:h-[420px] rounded-2xl overflow-hidden">
+                <CardContent className="p-0">
+                  {/* Placeholder portrait / hero visual */}
+                  <div className="h-[420px] w-full bg-gradient-to-br from-primary/30 via-muted to-background flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-7xl">🧪</div>
+                      <div className="mt-2 text-muted-foreground">Computational Toxicology</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </motion.div>
+        </div>
+      </header>
 
-    </main>
+      {/* Highlights */}
+      <Section id="highlights" title="Highlights" subtitle="A snapshot of current roles, recognitions, and focal areas.">
+        <div className="grid md:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Senior Scientist, Merck</CardTitle>
+              <CardDescription>Computational Investigative Toxicology — Non-Clinical Safety</CardDescription>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">2025 — present</CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>NIH Complement-ARIE Winner</CardTitle>
+              <CardDescription>Exploring Omics for Liver Toxicity Assessment (~$50k)</CardDescription>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">2024</CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Editorial & Service</CardTitle>
+              <CardDescription>Associate Editor · Reviewer across Nature/ACS/RSC journals</CardDescription>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">Ongoing</CardContent>
+          </Card>
+        </div>
+      </Section>
 
-    <script>
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(10, 10, 10, 0.95)';
-            } else {
-                header.style.background = 'rgba(10, 10, 10, 0.8)';
-            }
-        });
+      {/* About */}
+      <Section id="about" title="About">
+        <div className="prose dark:prose-invert max-w-none">
+          <p>
+            Srijit has worked across the US, UK, Germany, Japan, and India, building AI systems that combine
+            chemical structure, high-content imaging, and multi-omics to predict bioactivity and toxicity.
+            His work emphasizes rigorous evaluation, out-of-distribution testing, and confounder-aware
+            modeling to ensure reliable, translational insights.
+          </p>
+        </div>
+      </Section>
 
-        // Parallax effect for floating elements
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const molecules = document.querySelectorAll('.molecule');
-            
-            molecules.forEach((molecule, index) => {
-                const speed = 0.5 + (index * 0.1);
-                molecule.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
+      {/* Experience & Education */}
+      <Section id="experience" title="Experience & Education" subtitle="Selected roles and training.">
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-xl font-semibold mb-2 flex items-center gap-2"><Briefcase className="h-5 w-5"/> Experience</h3>
+            <TimelineItem when="2025 — now" where="Merck, US" title="Senior Scientist (AI), Non-Clinical Safety" description="Computational Investigative Toxicology" />
+            <TimelineItem when="2023 — 2024" where="Broad Institute" title="Postdoctoral Researcher" description="ML for Cell Painting to predict bioactivity and toxicity" icon={School} />
+            <TimelineItem when="Consulting & Visiting" where="2022 — now" title="Multiple startups & academic visits" description="Chemoinformatics, agentic AI, and techbio advising" icon={Building2} />
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-2 flex items-center gap-2"><School className="h-5 w-5"/> Education</h3>
+            <TimelineItem when="2020 — 2024" where="University of Cambridge" title="PhD in Chemistry" description="Toxicity prediction from high-dimensional cell morphology" icon={School} />
+            <TimelineItem when="2019 — 2020" where="University of Cambridge" title="MPhil in Chemistry" description="Deep learning for toxicity prediction (GNNs, NNs)" icon={School} />
+            <TimelineItem when="2016 — 2019" where="St. Stephen’s College, Delhi" title="BSc (Hons.) in Chemistry" description="University of Delhi" icon={School} />
+          </div>
+        </div>
+      </Section>
 
-        // Add intersection observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+      {/* Publications */}
+      <Section id="publications" title="Selected Publications" subtitle="For the full list, get in touch or see ORCID.">
+        <div className="grid md:grid-cols-2 gap-6">
+          <PublicationCard title="Cell Painting: A decade of discovery and innovation in cellular imaging" venue="Nature Methods" year="2024" authors="*Seal S. et al." />
+          <PublicationCard title="Insights into drug cardiotoxicity: the first public classifiers for FDA DICTrank" venue="J. Chem. Inf. Model." year="2024" authors="*Seal S. et al." />
+          <PublicationCard title="Improved early detection of drug-induced liver injury by integrating predicted in vivo and in vitro data" venue="Chem. Res. Toxicol." year="2024" authors="Seal S. et al." />
+          <PublicationCard title="From pixels to phenotypes: Integrating image-based profiling with cell health data" venue="Mol. Biol. Cell" year="2023" authors="Seal S. et al." />
+          <PublicationCard title="Merging predictions from morphology and chemical fingerprints by leveraging similarity" venue="J. Cheminform." year="2023" authors="Seal S. et al." />
+          <PublicationCard title="Machine Learning for Toxicity Prediction Using Chemical Structures: Pillars for Success in the Real World" venue="Chem. Res. Toxicol." year="2025" authors="*Seal S. et al." note="ACS Editor’s Choice" />
+        </div>
+        <div className="mt-6">
+          <Button asChild variant="outline">
+            <a href="https://orcid.org/0000-0003-2790-8679" target="_blank" rel="noreferrer">
+              View ORCID <ExternalLink className="ml-2 h-4 w-4"/>
+            </a>
+          </Button>
+        </div>
+      </Section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
+      {/* Grants */}
+      <Section id="grants" title="Grants & Funding" subtitle="Selected principal investigator awards.">
+        <div className="grid md:grid-cols-2 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>NIH Complement-ARIE Challenge</CardTitle>
+              <CardDescription>Exploring Omics for Liver Toxicity Assessment (~$50k)</CardDescription>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">2024 — Winner</CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Schmidt Futures Accelerate‑C2D3</CardTitle>
+              <CardDescription>Theoretical & philosophical perspectives on biology & AI (~$18k)</CardDescription>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">2022 — PI</CardContent>
+          </Card>
+        </div>
+      </Section>
 
-        document.querySelectorAll('.feature-card').forEach(card => {
-            observer.observe(card);
-        });
-    </script>
-</body>
-</html>
+      {/* Awards */}
+      <Section id="awards" title="Honors & Awards" subtitle="A few highlights from a longer list.">
+        <div className="grid md:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Global Talent (UK)</CardTitle>
+              <CardDescription>Endorsed by Royal Society (2025–2030)</CardDescription>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">Recognition</CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>ASCCT Board of Directors</CardTitle>
+              <CardDescription>American Society for Cellular & Computational Toxicology</CardDescription>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">2025–2027</CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Multiple Travel & Research Grants</CardTitle>
+              <CardDescription>RSC, Clare Hall, BTS/SOT honors and awards</CardDescription>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">Ongoing</CardContent>
+          </Card>
+        </div>
+      </Section>
+
+      {/* Service */}
+      <Section id="service" title="Editorial & Community Service" subtitle="Associate Editor and reviewer across top journals; conference organization and academic governance.">
+        <div className="grid md:grid-cols-2 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Associate Editor</CardTitle>
+              <CardDescription>Frontiers in Medicine</CardDescription>
+            </CardHeader>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Reviewer</CardTitle>
+              <CardDescription>Nature family, ACS, RSC, Patterns, SLAS, ALTEX, and more</CardDescription>
+            </CardHeader>
+          </Card>
+        </div>
+      </Section>
+
+      {/* CTA */}
+      <Section id="contact" title="Get in Touch" subtitle="Speaking invitations, collaborations, and advisory.">
+        <div className="grid md:grid-cols-3 gap-4 max-w-4xl">
+          <Button asChild variant="default" className="justify-start"><a href="mailto:srijit@understanding.bio"><Mail className="h-4 w-4 mr-2"/> Email</a></Button>
+          <Button asChild variant="outline" className="justify-start"><a href="https://www.linkedin.com/in/srijitseal" target="_blank" rel="noreferrer"><Linkedin className="h-4 w-4 mr-2"/> LinkedIn</a></Button>
+          <Button asChild variant="outline" className="justify-start"><a href="https://github.com/srijitseal" target="_blank" rel="noreferrer"><Github className="h-4 w-4 mr-2"/> GitHub</a></Button>
+        </div>
+        <div className="mt-6 text-sm text-muted-foreground">
+          Need a print CV? <a className="underline underline-offset-4 hover:text-primary" href="https://www.srijitseal.com/CV" onClick={(e)=>{e.preventDefault(); alert('Link the CV PDF in production.');}}>Download CV (PDF)</a>
+        </div>
+      </Section>
+
+      {/* Footer */}
+      <footer className="border-t">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-8 text-sm text-muted-foreground flex flex-col md:flex-row items-center justify-between gap-2">
+          <div>© {new Date().getFullYear()} Srijit Seal</div>
+          <div className="flex items-center gap-4">
+            <a className="hover:text-primary" href="#about">About</a>
+            <a className="hover:text-primary" href="#publications">Publications</a>
+            <a className="hover:text-primary" href="#contact">Contact</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
