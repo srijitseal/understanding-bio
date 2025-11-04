@@ -9,15 +9,24 @@
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo" onclick="showPage('home')">understanding.bio</a>
+            <a href="#" class="logo" onclick="showPage('home', event)">understanding.bio</a>
             <ul class="nav-links">
-                <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
-                <li><a href="#" onclick="showPage('about')" class="nav-link">About</a></li>
-                <li><a href="#" onclick="showPage('meetings')" class="nav-link">Meetings</a></li>
-                <li><a href="#" onclick="showPage('resources')" class="nav-link">Resources</a></li>
-                <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+                <li><a href="#" onclick="showPage('home', event)" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showPage('about', event)" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showPage('meetings', event)" class="nav-link">Meetings</a></li>
+                <li><a href="#" onclick="showPage('resources', event)" class="nav-link">Resources</a></li>
+                <li><a href="#" onclick="showPage('contact', event)" class="nav-link">Contact</a></li>
             </ul>
         </nav>
+        <!-- Alert banner for the next meeting -->
+        <div class="announcement-bar" style="background:#0ea5e9;color:#fff;padding:0.75rem 0;">
+            <div class="container" style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;justify-content:center;">
+                <strong>Next meeting:</strong>
+                <span>November 13, 2025 · 6:30 PM · Chemistry Laboratories, 1973 Wing (231 S 34th St)</span>
+                <span>• Talk by <strong>Dr. Daniel Seith (GSK)</strong>, followed by pizza & refreshments.</span>
+                <a href="https://forms.gle/fuGadcqMwhXMU6pS6" class="cta-button" style="margin-left:0.5rem;">RSVP</a>
+            </div>
+        </div>
     </header>
 
     <div class="container">
@@ -60,9 +69,10 @@
                     <div class="sidebar">
                         <h3>Upcoming Events</h3>
                         <div class="event-item">
-                            <div class="event-date">July 18, 2025 • 7:00 PM</div>
-                            <div class="event-title">Introduction to AI in Drug Discovery</div>
+                            <div class="event-date">November 13, 2025 • 6:30 PM</div>
+                            <div class="event-title">AI & Chemistry for Drug Discovery</div>
                             <div class="event-location">Chemistry Laboratories, 1973 Wing, 231 S. 34th Street, Philadelphia, PA 19104-6323</div>
+                            <div class="event-note">Featuring a presentation by <strong>Dr. Daniel Seith (GSK)</strong>, followed by pizza & refreshments.</div>
                         </div>
 
                         <h3 style="margin-top: 2rem;">Quick Links</h3>
@@ -145,6 +155,29 @@
                       </thead>
                       <tbody>
                         <tr>
+                          <td>November 13, 2025</td>
+                          <td>AI & Chemistry for Drug Discovery (Talk + Networking; pizza & refreshments)</td>
+                          <td>Dr. Daniel Seith (GSK)</td>
+                          <td>Chemistry Laboratories, 1973 Wing</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <h3>Meeting Archive</h3>
+                    <p>
+                        Previous meetings and presentations will be documented here as our community grows. We plan to maintain a comprehensive archive of talks, slides, and discussion summaries for community reference.
+                    </p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Topic</th>
+                          <th>Speaker</th>
+                          <th>Location</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
                           <td rowspan="3">July 18, 2025</td>
                           <td>Welcome to Philadelphia AIDD Meetings</td>
                           <td>Dr. Srijit Seal</td>
@@ -160,11 +193,6 @@
                         </tr>
                       </tbody>
                     </table>
-
-                    <h3>Meeting Archive</h3>
-                    <p>
-                        Previous meetings and presentations will be documented here as our community grows. We plan to maintain a comprehensive archive of talks, slides, and discussion summaries for community reference.
-                    </p>
 
                     <h3>Speaking Opportunities</h3>
                     <p>
@@ -276,8 +304,8 @@
                 </div>
                 <div class="footer-section">
                     <h3>Resources</h3>
-                    <p><a href="#" onclick="showPage('resources')">Learning Materials</a></p>
-                    <p><a href="#" onclick="showPage('meetings')">Meeting Archive</a></p>
+                    <p><a href="#" onclick="showPage('resources', event)">Learning Materials</a></p>
+                    <p><a href="#" onclick="showPage('meetings', event)">Meeting Archive</a></p>
                     <p><a href="mailto:resources@understanding.bio">Contribute Resources</a></p>
                 </div>
             </div>
@@ -288,7 +316,7 @@
     </footer>
 
     <script>
-        function showPage(pageId) {
+        function showPage(pageId, ev) {
             // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
@@ -303,7 +331,7 @@
             });
             
             // Find the clicked nav link and add active class
-            const clickedLink = event.target.closest('.nav-link');
+            const clickedLink = ev && ev.target ? ev.target.closest('.nav-link') : null;
             if (clickedLink) {
                 clickedLink.classList.add('active');
             }
