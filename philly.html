@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Philadelphia Drug Discovery AI Meetings</title>
+    <meta name="description" content="Understanding.bio Bridging Academia and Industry: UPenn Symposium on AI-enabled Drug Discovery on June 4, 2026, featuring speakers from Eli Lilly, Boehringer Ingelheim, Bristol Myers Squibb, and academia.">
+    <title>Bridging Academia and Industry: UPenn Symposium on AI-enabled Drug Discovery | Understanding.bio</title>
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
@@ -11,20 +12,20 @@
         <nav class="container">
             <a href="#" class="logo" onclick="showPage('home', event)">understanding.bio</a>
             <ul class="nav-links">
-                <li><a href="#" onclick="showPage('home', event)" class="nav-link active">Home</a></li>
-                <li><a href="#" onclick="showPage('about', event)" class="nav-link">About</a></li>
-                <li><a href="#" onclick="showPage('meetings', event)" class="nav-link">Meetings</a></li>
-                <li><a href="#" onclick="showPage('resources', event)" class="nav-link">Resources</a></li>
-                <li><a href="#" onclick="showPage('contact', event)" class="nav-link">Contact</a></li>
+                <li><a href="#" onclick="showPage('home', event)" data-page="home" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showPage('about', event)" data-page="about" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showPage('meetings', event)" data-page="meetings" class="nav-link">Meetings</a></li>
+                <li><a href="#" onclick="showPage('resources', event)" data-page="resources" class="nav-link">Resources</a></li>
+                <li><a href="#" onclick="showPage('contact', event)" data-page="contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
         <!-- Alert banner for the next meeting -->
-        <div class="announcement-bar" style="background:#0ea5e9;color:#fff;padding:0.75rem 0;">
-            <div class="container" style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;justify-content:center;">
+        <div class="announcement-bar">
+            <div class="container announcement-content">
                 <strong>Next meeting:</strong>
-                <span>November 13, 2025 · 6:30 PM · Chemistry Laboratories, 1973 Wing (231 S 34th St)</span>
-                <span>• Talk by <strong>Dr. Daniel Seith (GSK)</strong>, followed by pizza & refreshments.</span>
-                <a href="https://forms.gle/fuGadcqMwhXMU6pS6" class="cta-button" style="margin-left:0.5rem;">RSVP</a>
+                <span>June 4, 2026 &middot; 12:45 PM-4:45 PM &middot; 231 S 34th St, Philadelphia</span>
+                <span>Industry speakers from <strong>Eli Lilly</strong>, <strong>Boehringer Ingelheim</strong>, and <strong>Bristol Myers Squibb</strong>.</span>
+                <a href="mailto:info@understanding.bio?subject=AI%20in%20Pharma%20and%20Drug%20Discovery%20Day%20registration" class="cta-button compact">Registration updates</a>
             </div>
         </div>
     </header>
@@ -33,58 +34,77 @@
         <div class="main-content">
             <!-- HOME PAGE -->
             <div id="home" class="page active">
-                <section class="hero">
-                    <h1>Philadelphia AI and Digital Drug Discovery Network Meetings</h1>
-                    <p class="subtitle">Advancing Healthcare Through Artificial Intelligence</p>
+                <section class="hero event-hero">
+                    <p class="eyebrow">June 4, 2026 &middot; Philadelphia</p>
+                    <h1>Bridging Academia and Industry: UPenn Symposium on AI-enabled Drug Discovery</h1>
+                    <p class="subtitle">A focused afternoon on AI, chemistry, and pharmaceutical discovery</p>
                     <p class="description">
-                        Join Philadelphia's premier community of researchers, clinicians, and technologists working at the intersection of AI and drug discovery. Our quarterly meetings foster collaboration, share cutting-edge research, and accelerate therapeutic innovation.
+                        Join Philadelphia researchers, students, and industry scientists for an Understanding.bio meeting featuring speakers from Eli Lilly, Boehringer Ingelheim, Bristol Myers Squibb, and an academic speaker to be announced. The program will be moderated by Dr. Srijit Seal (Human chemical company).
                     </p>
-                    <a href="https://forms.gle/fuGadcqMwhXMU6pS6" class="cta-button">Join Our Next Meeting</a>
+                    <div class="hero-actions">
+                        <a href="#" onclick="showPage('meetings', event)" class="cta-button">View Agenda</a>
+                        <a href="mailto:info@understanding.bio?subject=AI%20in%20Pharma%20and%20Drug%20Discovery%20Day%20registration" class="cta-button secondary">Request Registration Link</a>
+                    </div>
+                    <div class="event-meta-grid" aria-label="Event details">
+                        <div>
+                            <span>Date</span>
+                            <strong>Thursday, June 4, 2026</strong>
+                        </div>
+                        <div>
+                            <span>Time</span>
+                            <strong>12:45 PM-4:45 PM ET</strong>
+                        </div>
+                        <div>
+                            <span>Venue</span>
+                            <strong>231 S 34th St, Philadelphia, PA</strong>
+                        </div>
+                    </div>
                 </section>
 
                 <div class="content-grid">
                     <div class="content-section">
-                        <h2>Welcome to Understanding.bio</h2>
+                        <h2>June 4 Program</h2>
                         <p>
-                            Understanding.bio represents Philadelphia's vibrant drug discovery AI community, bringing together interdisciplinary experts from academia, industry, and healthcare institutions across the Greater Philadelphia area.
+                            This special Understanding.bio gathering brings together pharmaceutical and academic perspectives on how AI is changing drug discovery, medicinal chemistry, automation, and translational decision-making.
                         </p>
                         
                         <div class="highlight-box">
-                            <strong>Our Mission:</strong> To accelerate therapeutic discovery and development through collaborative AI research, knowledge sharing, and innovative partnerships that transform how we understand and treat human disease.
+                            <strong>Featured speakers:</strong> Dr. Xiang Yu (Eli Lilly), Dr. Deidre Dalmas (Boehringer Ingelheim), Dr. Vladimir Chupakhin (Bristol Myers Squibb), plus an academic speaker to be announced.
                         </div>
 
-                        <h3>What We Do</h3>
+                        <h3>What to Expect</h3>
                         <p>
-                            Our quarterly meetings feature presentations on breakthrough AI methodologies in drug discovery, from molecular design and target identification to clinical trial optimization. We explore machine learning applications in pharmacokinetics, toxicology prediction, and personalized medicine approaches.
+                            Four 45-minute sessions will run through the afternoon, with a pizza and networking break between the second and third talks. The program is designed for students and researchers who want practical exposure to AI-enabled pharmaceutical discovery across industry and academia.
                         </p>
 
-                        <h3>Recent Meeting Topics</h3>
-                        <p>
-                            • Innovative Approaches in Data-Driven Chemistry and Reaction Optimization<br>
-                            • AI Driven Exploration of Dementia Biomarkers<br>
-                            • SyzOnc: A new systems-level approach to cancer therapeutics
-                        </p>
+                        <h3>Program Themes</h3>
+                        <ul class="feature-list">
+                            <li>AI and machine learning in pharma research workflows</li>
+                            <li>Computational chemistry, medicinal chemistry, and toxicology applications</li>
+                            <li>Automation, data-driven discovery, and translational decision-making</li>
+                            <li>Student networking with regional industry and academic scientists</li>
+                        </ul>
                     </div>
 
                     <div class="sidebar">
                         <h3>Upcoming Events</h3>
                         <div class="event-item">
-                            <div class="event-date">November 13, 2025 • 6:30 PM</div>
-                            <div class="event-title">AI & Chemistry for Drug Discovery</div>
-                            <div class="event-location">Chemistry Laboratories, 1973 Wing, 231 S. 34th Street, Philadelphia, PA 19104-6323</div>
-                            <div class="event-note">Featuring a presentation by <strong>Dr. Daniel Seith (GSK)</strong>, followed by pizza & refreshments.</div>
+                            <div class="event-date">June 4, 2026 &bull; 12:45 PM</div>
+                            <div class="event-title">Bridging Academia and Industry: UPenn Symposium on AI-enabled Drug Discovery</div>
+                            <div class="event-location">231 S 34th St, Philadelphia, PA 19104</div>
+                            <div class="event-note">Talks from Eli Lilly, Boehringer Ingelheim, Bristol Myers Squibb, and an academic speaker. Moderated by <strong>Dr. Srijit Seal (Human chemical company)</strong>.</div>
                         </div>
 
                         <h3 style="margin-top: 2rem;">Quick Links</h3>
                         <div class="quick-links">
                             <ul>
                                 <li>
-                                    <a href="mailto:talk@understanding.bio?subject=Talk Proposal Submission">
-                                        Submit Talk Proposal
+                                    <a href="mailto:info@understanding.bio?subject=AI%20in%20Pharma%20and%20Drug%20Discovery%20Day%20registration">
+                                        Request Registration Link
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="mailto:andreas@drugdiscovery.net?subject=Newsletter Signup Request&body=Hello%20Andreas,%0A%0AI%20would%20like%20to%20register%20for%20the%20newsletter%20in%20cheminformatics%20and%20computational%20drug%20discovery.%0A%0AThank%20you!">
+                                    <a href="mailto:andreas@drugdiscovery.net?subject=Newsletter Signup Request&amp;body=Hello%20Andreas,%0A%0AI%20would%20like%20to%20register%20for%20the%20newsletter%20in%20cheminformatics%20and%20computational%20drug%20discovery.%0A%0AThank%20you!">
                                         Cheminformatics Newsletter
                                     </a>
                                 </li>
@@ -117,10 +137,10 @@
                         Each quarterly meeting typically features:
                     </p>
                     <div class="highlight-box">
-                        • Two 35-minute technical presentations<br>
-                        • 15-minute Q&A and discussion sessions<br>
-                        • 30-minute networking reception<br>
-                        • Informal discussions and collaboration opportunities
+                        &bull; Technical talks from academia and industry<br>
+                        &bull; Q&amp;A and moderated discussion<br>
+                        &bull; Pizza, networking, and informal collaboration time<br>
+                        &bull; Student-facing exposure to regional drug discovery careers
                     </div>
 
                     <h3>Philadelphia's AI Drug Discovery Ecosystem</h3>
@@ -138,30 +158,61 @@
             <!-- MEETINGS PAGE -->
             <div id="meetings" class="page">
                 <div class="content-section">
-                    <h2>Meetings & Events</h2>
+                    <h2>Meetings &amp; Events</h2>
                     <p>
-                        Understanding.bio hosts quarterly meetings featuring cutting-edge research presentations, technical discussions, and networking opportunities. All meetings are free and open to the community.
+                        Understanding.bio hosts meetings featuring cutting-edge research presentations, technical discussions, and networking opportunities. All meetings are free and open to the community.
                     </p>
 
                     <h3>Upcoming Meetings</h3>
                     <table>
                       <thead>
                         <tr>
-                          <th>Date</th>
-                          <th>Topic</th>
+                          <th>Time</th>
+                          <th>Session</th>
                           <th>Speaker</th>
-                          <th>Location</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>November 13, 2025</td>
-                          <td>AI & Chemistry for Drug Discovery (Talk + Networking; pizza & refreshments)</td>
-                          <td>Dr. Daniel Seith (GSK)</td>
-                          <td>Chemistry Laboratories, 1973 Wing</td>
+                          <td>12:45 PM-1:00 PM</td>
+                          <td>Welcome, opening remarks, and introductions</td>
+                          <td>Moderator: Dr. Srijit Seal (Human chemical company)</td>
+                        </tr>
+                        <tr>
+                          <td>1:00 PM-1:45 PM</td>
+                          <td>Speaker Session 1</td>
+                          <td>Academic speaker to be announced</td>
+                        </tr>
+                        <tr>
+                          <td>1:45 PM-2:30 PM</td>
+                          <td>Speaker Session 2</td>
+                          <td>Dr. Xiang Yu (Eli Lilly)</td>
+                        </tr>
+                        <tr>
+                          <td>2:30 PM-3:00 PM</td>
+                          <td>Break and pizza</td>
+                          <td>Networking</td>
+                        </tr>
+                        <tr>
+                          <td>3:00 PM-3:45 PM</td>
+                          <td>Speaker Session 3</td>
+                          <td>Dr. Deidre Dalmas (Boehringer Ingelheim)</td>
+                        </tr>
+                        <tr>
+                          <td>3:45 PM-4:30 PM</td>
+                          <td>Speaker Session 4</td>
+                          <td>Dr. Vladimir Chupakhin (Bristol Myers Squibb)</td>
+                        </tr>
+                        <tr>
+                          <td>4:30 PM-4:45 PM</td>
+                          <td>Closing remarks</td>
+                          <td>Understanding.bio organizers</td>
                         </tr>
                       </tbody>
                     </table>
+                    <div class="highlight-box">
+                        <strong>Location:</strong> 231 S 34th St, Philadelphia, PA 19104. Registration link coming soon; email <a href="mailto:info@understanding.bio?subject=AI%20in%20Pharma%20and%20Drug%20Discovery%20Day%20registration" style="color: white; text-decoration: underline;">info@understanding.bio</a> for updates.
+                    </div>
 
                     <h3>Meeting Archive</h3>
                     <p>
@@ -177,6 +228,12 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <tr>
+                          <td>November 13, 2025</td>
+                          <td>AI &amp; Chemistry for Drug Discovery</td>
+                          <td>Dr. Daniel Seith (GSK)</td>
+                          <td>Chemistry Laboratories, 1973 Wing</td>
+                        </tr>
                         <tr>
                           <td rowspan="3">July 18, 2025</td>
                           <td>Welcome to Philadelphia AIDD Meetings</td>
@@ -199,11 +256,11 @@
                         We welcome presentation proposals from community members. Ideal presentations are 25-35 minutes long and focus on:
                     </p>
                     <div class="highlight-box">
-                        • Novel AI methodologies in drug discovery<br>
-                        • Case studies and practical applications<br>
-                        • Challenges and lessons learned<br>
-                        • Collaborative research opportunities<br>
-                        • Tools and resources for the community
+                        &bull; Novel AI methodologies in drug discovery<br>
+                        &bull; Case studies and practical applications<br>
+                        &bull; Challenges and lessons learned<br>
+                        &bull; Collaborative research opportunities<br>
+                        &bull; Tools and resources for the community
                     </div>
 
                     <div class="highlight-box">
@@ -215,7 +272,7 @@
             <!-- RESOURCES PAGE -->
             <div id="resources" class="page">
                 <div class="content-section">
-                    <h2>Resources & Tools</h2>
+                    <h2>Resources &amp; Tools</h2>
                     <p>
                         Our community maintains a curated collection of resources, tools, and learning materials for AI in drug discovery.
                     </p>
@@ -278,7 +335,7 @@
 
                         <h3>Newsletter</h3>
                         <p>
-                            <a href="mailto:andreas@drugdiscovery.net?subject=Newsletter Signup Request&body=Hello%20Andreas,%0A%0AI%20would%20like%20to%20register%20for%20the%20newsletter%20in%20cheminformatics%20and%20computational%20drug%20discovery.%0A%0AThank%20you!" style="color: white; text-decoration: underline;">
+                            <a href="mailto:andreas@drugdiscovery.net?subject=Newsletter Signup Request&amp;body=Hello%20Andreas,%0A%0AI%20would%20like%20to%20register%20for%20the%20newsletter%20in%20cheminformatics%20and%20computational%20drug%20discovery.%0A%0AThank%20you!" style="color: white; text-decoration: underline;">
                                 Subscribe to Andreas Bender's Newsletter
                             </a> for quarterly updates on cheminformatics and computational drug discovery.
                         </p>
@@ -310,7 +367,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Understanding.bio. All rights reserved.</p>
+                <p>&copy; 2026 Understanding.bio. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -332,8 +389,9 @@
             
             // Find the clicked nav link and add active class
             const clickedLink = ev && ev.target ? ev.target.closest('.nav-link') : null;
-            if (clickedLink) {
-                clickedLink.classList.add('active');
+            const activeLink = clickedLink || document.querySelector(`.nav-link[data-page="${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
             }
             
             // Scroll to top smoothly
